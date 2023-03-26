@@ -26,3 +26,5 @@ create table cart_items (
 	product_id uuid not null,
 	count integer not null default 0
 );
+
+ALTER TABLE cart_items ADD COLUMN id SERIAL PRIMARY KEY;

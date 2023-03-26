@@ -19,6 +19,7 @@ async function bootstrap(): Promise<Handler> {
 
   const expressApp = app.getHttpAdapter().getInstance();
   return serverlessExpress({ app: expressApp });
+  // return app.listen(port);
 }
 
 export const handler: Handler = async (
@@ -29,3 +30,5 @@ export const handler: Handler = async (
   server = server ?? (await bootstrap());
   return server(event, context, callback);
 };
+
+// bootstrap().then(() => console.log('Started'));
