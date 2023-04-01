@@ -16,7 +16,10 @@ import Order from './entities/order.entity';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       entities: [
-        'dist/database/entities/*.entity{.ts,.js}',
+        Cart,
+        CartItem,
+        Order,
+        User,
       ],
       logging: true,
       namingStrategy: new SnakeNamingStrategy(),

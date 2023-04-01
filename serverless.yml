@@ -10,10 +10,18 @@ provider:
   runtime: nodejs14.x
   stage: dev
   region: eu-central-1
+  vpc:
+    securityGroupIds:
+      - sg-020d896bdbf51572b
+    subnetIds:
+      - subnet-0be9641c87a1bdd68
+      - subnet-037ec246b5ba87623
+      - subnet-03dbf8341049ffb3a
 
 functions:
   main:
     handler: dist/main.handler
+    timeout: 60
     events:
       - http:
           method: ANY
