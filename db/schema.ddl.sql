@@ -49,10 +49,10 @@ create table users (
 create table orders (
 	id uuid not null default uuid_generate_v4() primary key,
 	user_id uuid not null references users(id),
-	cart_id uuid not null references cart(id),
+	cart_id uuid not null references carts(id),
 	payment JSON not null,
 	delivery JSON not null,
 	comments text,
 	status text not null,
-	total number not null
+	total numeric not null
 );
