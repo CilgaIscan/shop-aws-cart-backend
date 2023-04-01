@@ -36,3 +36,23 @@ create table users (
 	"password" text NULL,
 	CONSTRAINT users_pkey PRIMARY KEY (id)
 );
+
+-- orders:
+--   id - uuid
+--   user_id - uuid
+--   cart_id - uuid (Foreign key from carts.id)
+--   payment - JSON
+--   delivery - JSON
+--   comments - text
+--   status - ENUM or text
+--   total - number
+create table orders (
+	id uuid not null default uuid_generate_v4() primary key,
+	user_id uuid not null references users(id),
+	cart_id uuid not null references cart(id),
+	payment JSON not null,
+	delivery JSON not null,
+	comments text,
+	status text not null,
+	total number not null
+);
