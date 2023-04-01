@@ -28,3 +28,11 @@ create table cart_items (
 );
 
 ALTER TABLE cart_items ADD COLUMN id SERIAL PRIMARY KEY;
+
+create table users (
+	id uuid NOT NULL DEFAULT uuid_generate_v4(),
+	"name" text NOT NULL,
+	email text NULL,
+	"password" text NULL,
+	CONSTRAINT users_pkey PRIMARY KEY (id)
+);
